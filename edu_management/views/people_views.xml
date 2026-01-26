@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_edu_student_form" model="ir.ui.view">
+        <field name="name">edu.student.form</field>
+        <field name="model">edu.student</field>
+        <field name="arch" type="xml">
+            <form string="Student">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="student_code"/>
+                        <field name="active"/>
+                        <field name="company_id" groups="base.group_multi_company"/>
+                    </group>
+                    <group>
+                        <field name="class_id"/>
+                        <field name="section_id"/>
+                    </group>
+                    <notebook>
+                        <page string="Parents / Guardians">
+                            <field name="parent_ids" widget="many2many_tags"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_edu_teacher_form" model="ir.ui.view">
+        <field name="name">edu.teacher.form</field>
+        <field name="model">edu.teacher</field>
+        <field name="arch" type="xml">
+            <form string="Teacher">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="employee_code"/>
+                        <field name="active"/>
+                        <field name="company_id" groups="base.group_multi_company"/>
+                    </group>
+                    <notebook>
+                        <page string="Assignments">
+                            <group>
+                                <field name="subject_ids" widget="many2many_tags"/>
+                                <field name="class_ids" widget="many2many_tags"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_edu_parent_form" model="ir.ui.view">
+        <field name="name">edu.parent.form</field>
+        <field name="model">edu.parent</field>
+        <field name="arch" type="xml">
+            <form string="Parent / Guardian">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="phone"/>
+                        <field name="email"/>
+                        <field name="active"/>
+                        <field name="company_id" groups="base.group_multi_company"/>
+                    </group>
+                    <notebook>
+                        <page string="Students">
+                            <field name="student_ids" widget="many2many_tags"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

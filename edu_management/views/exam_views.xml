@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_exam_tree" model="ir.ui.view">
+        <field name="name">edu.exam.tree</field>
+        <field name="model">edu.exam</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="date"/>
+                <field name="class_id"/>
+                <field name="subject_id"/>
+                <field name="term_id"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_exam_kanban" model="ir.ui.view">
+        <field name="name">edu.exam.kanban</field>
+        <field name="model">edu.exam</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_small_column">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <strong><field name="name"/></strong>
+                            <div><field name="date"/></div>
+                            <div><field name="class_id"/></div>
+                            <div><field name="subject_id"/></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_exam_form" model="ir.ui.view">
+        <field name="name">edu.exam.form</field>
+        <field name="model">edu.exam</field>
+        <field name="arch" type="xml">
+            <form string="Exam">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="date"/>
+                        <field name="active"/>
+                    </group>
+                    <group>
+                        <field name="academic_year_id"/>
+                        <field name="term_id"/>
+                        <field name="class_id"/>
+                        <field name="subject_id"/>
+                    </group>
+                    <notebook>
+                        <page string="Continuous Assessments">
+                            <field name="ca_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ca_tree" model="ir.ui.view">
+        <field name="name">edu.continuous.assessment.tree</field>
+        <field name="model">edu.continuous.assessment</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="exam_id"/>
+                <field name="sequence"/>
+                <field name="max_score"/>
+                <field name="weight"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ca_kanban" model="ir.ui.view">
+        <field name="name">edu.continuous.assessment.kanban</field>
+        <field name="model">edu.continuous.assessment</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_small_column">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <strong><field name="name"/></strong>
+                            <div><field name="exam_id"/></div>
+                            <div>Max: <field name="max_score"/></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_ca_form" model="ir.ui.view">
+        <field name="name">edu.continuous.assessment.form</field>
+        <field name="model">edu.continuous.assessment</field>
+        <field name="arch" type="xml">
+            <form string="Continuous Assessment">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="exam_id"/>
+                        <field name="sequence"/>
+                    </group>
+                    <group>
+                        <field name="max_score"/>
+                        <field name="weight"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_result_tree" model="ir.ui.view">
+        <field name="name">edu.result.tree</field>
+        <field name="model">edu.result</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="date"/>
+                <field name="result_type"/>
+                <field name="exam_id"/>
+                <field name="class_id"/>
+                <field name="student_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_result_kanban" model="ir.ui.view">
+        <field name="name">edu.result.kanban</field>
+        <field name="model">edu.result</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_small_column">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <strong><field name="name"/></strong>
+                            <div><field name="exam_id"/></div>
+                            <div><field name="class_id"/></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_result_form" model="ir.ui.view">
+        <field name="name">edu.result.form</field>
+        <field name="model">edu.result</field>
+        <field name="arch" type="xml">
+            <form string="Result">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="date"/>
+                        <field name="result_type"/>
+                    </group>
+                    <group>
+                        <field name="exam_id"/>
+                        <field name="class_id"/>
+                        <field name="section_id"/>
+                        <field name="subject_id"/>
+                        <field name="student_id"/>
+                    </group>
+                    <notebook>
+                        <page string="Result Lines">
+                            <field name="line_ids">
+                                <tree editable="bottom">
+                                    <field name="student_id"/>
+                                    <field name="ca_score"/>
+                                    <field name="exam_score"/>
+                                    <field name="total_score"/>
+                                    <field name="grade"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_result_line_tree" model="ir.ui.view">
+        <field name="name">edu.result.line.tree</field>
+        <field name="model">edu.result.line</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="result_id"/>
+                <field name="student_id"/>
+                <field name="ca_score"/>
+                <field name="exam_score"/>
+                <field name="total_score"/>
+                <field name="grade"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_exam" model="ir.actions.act_window">
+        <field name="name">Exams</field>
+        <field name="res_model">edu.exam</field>
+        <field name="view_mode">tree,kanban,form</field>
+    </record>
+
+    <record id="action_ca" model="ir.actions.act_window">
+        <field name="name">Continuous Assessments</field>
+        <field name="res_model">edu.continuous.assessment</field>
+        <field name="view_mode">tree,kanban,form</field>
+    </record>
+
+    <record id="action_result" model="ir.actions.act_window">
+        <field name="name">Results</field>
+        <field name="res_model">edu.result</field>
+        <field name="view_mode">tree,kanban,form</field>
+    </record>
+
+    <record id="action_result_line" model="ir.actions.act_window">
+        <field name="name">Result Lines</field>
+        <field name="res_model">edu.result.line</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

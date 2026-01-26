@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_edu_dashboard_form" model="ir.ui.view">
+        <field name="name">edu.dashboard.form</field>
+        <field name="model">edu.dashboard</field>
+        <field name="arch" type="xml">
+            <form string="Dashboard">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>Education Dashboard</h1>
+                    </div>
+                    <div class="o_row">
+                        <div class="o_stat_box">
+                            <field name="students_count" widget="statinfo" string="Students"/>
+                        </div>
+                        <div class="o_stat_box">
+                            <field name="teachers_count" widget="statinfo" string="Teachers"/>
+                        </div>
+                        <div class="o_stat_box">
+                            <field name="attendance_count" widget="statinfo" string="Today Attendance"/>
+                        </div>
+                        <div class="o_stat_box">
+                            <field name="fees_amount_total" widget="statinfo" string="Fees"/>
+                        </div>
+                    </div>
+
+                    <group string="Quick Actions" col="4">
+                        <button type="action" name="%(action_student)d" string="Students" class="btn-primary"/>
+                        <button type="action" name="%(action_teacher)d" string="Teachers" class="btn-primary"/>
+                        <button type="action" name="%(action_student_invoice)d" string="Student Invoices" class="btn-primary"/>
+                        <button type="action" name="%(action_student_attendance)d" string="Student Attendance" class="btn-secondary"/>
+                        <button type="action" name="%(action_assignment)d" string="Assignments" class="btn-secondary"/>
+                        <button type="action" name="%(action_exam)d" string="Exams" class="btn-secondary"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_edu_dashboard" model="ir.actions.act_window">
+        <field name="name">Dashboard</field>
+        <field name="res_model">edu.dashboard</field>
+        <field name="view_mode">form</field>
+        <field name="res_id" ref="edu_dashboard_record"/>
+    </record>
+</odoo>

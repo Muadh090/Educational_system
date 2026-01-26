@@ -9,6 +9,11 @@ class EduParent(models.Model):
     _order = "name"
 
     name = fields.Char(required=True, index=True)
+    user_id = fields.Many2one(
+        "res.users",
+        string="Related User",
+        help="Portal user linked to this parent/guardian.",
+    )
     phone = fields.Char()
     email = fields.Char()
     active = fields.Boolean(default=True)

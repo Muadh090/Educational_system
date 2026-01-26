@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_edu_academics_root" name="Academics" sequence="10" groups="edu_management.group_edu_admin,edu_management.group_edu_teacher,edu_management.group_edu_accountant"/>
+    <menuitem id="menu_edu_people_root" name="People" sequence="20" groups="edu_management.group_edu_admin,edu_management.group_edu_teacher"/>
+    <menuitem id="menu_edu_learning_root" name="Learning" sequence="30" groups="edu_management.group_edu_admin,edu_management.group_edu_teacher,edu_management.group_edu_parent"/>
+    <menuitem id="menu_edu_exams_root" name="Exams & Results" sequence="40" groups="edu_management.group_edu_admin,edu_management.group_edu_teacher,edu_management.group_edu_parent"/>
+    <menuitem id="menu_edu_finance_root" name="Finance" sequence="50" groups="edu_management.group_edu_admin,edu_management.group_edu_accountant"/>
+    <menuitem id="menu_edu_operations_root" name="Operations" sequence="60" groups="edu_management.group_edu_admin,edu_management.group_edu_teacher"/>
+
+    <menuitem id="menu_edu_academics_structure" name="Structure" parent="menu_edu_academics_root" sequence="10"/>
+    <menuitem id="menu_edu_dashboard" name="Dashboard" parent="menu_edu_academics_root" action="action_edu_dashboard" sequence="5"/>
+    <menuitem id="menu_edu_academic_year" name="Academic Years" parent="menu_edu_academics_structure" action="action_academic_year" sequence="10"/>
+    <menuitem id="menu_edu_academic_term" name="Terms" parent="menu_edu_academics_structure" action="action_academic_term" sequence="20"/>
+    <menuitem id="menu_edu_academic_class" name="Classes" parent="menu_edu_academics_structure" action="action_academic_class" sequence="30"/>
+    <menuitem id="menu_edu_academic_section" name="Sections" parent="menu_edu_academics_structure" action="action_academic_section" sequence="40"/>
+    <menuitem id="menu_edu_academic_subject" name="Subjects" parent="menu_edu_academics_structure" action="action_academic_subject" sequence="50"/>
+
+    <menuitem id="menu_edu_people_directory" name="Directory" parent="menu_edu_people_root" sequence="10"/>
+    <menuitem id="menu_edu_student" name="Students" parent="menu_edu_people_directory" action="action_student" sequence="10"/>
+    <menuitem id="menu_edu_teacher" name="Teachers" parent="menu_edu_people_directory" action="action_teacher" sequence="20"/>
+    <menuitem id="menu_edu_parent" name="Parents / Guardians" parent="menu_edu_people_directory" action="action_parent" sequence="30"/>
+
+    <menuitem id="menu_edu_learning_content" name="Content" parent="menu_edu_learning_root" sequence="10"/>
+    <menuitem id="menu_edu_assignment" name="Assignments" parent="menu_edu_learning_content" action="action_assignment" sequence="10"/>
+    <menuitem id="menu_edu_material" name="E-learning Materials" parent="menu_edu_learning_content" action="action_material" sequence="20"/>
+    <menuitem id="menu_edu_cbt_exam" name="CBT / Online Exams" parent="menu_edu_learning_content" action="action_cbt_exam" sequence="30"/>
+
+    <menuitem id="menu_edu_exams_assessment" name="Assessment" parent="menu_edu_exams_root" sequence="10"/>
+    <menuitem id="menu_edu_exam" name="Exams" parent="menu_edu_exams_assessment" action="action_exam" sequence="10"/>
+    <menuitem id="menu_edu_ca" name="Continuous Assessment" parent="menu_edu_exams_assessment" action="action_ca" sequence="20"/>
+    <menuitem id="menu_edu_results" name="Results" parent="menu_edu_exams_assessment" action="action_result" sequence="30"/>
+    <menuitem id="menu_edu_result_lines" name="Result Lines" parent="menu_edu_exams_assessment" action="action_result_line" sequence="40"/>
+
+    <menuitem id="menu_edu_finance_fees" name="Fees" parent="menu_edu_finance_root" sequence="10"/>
+    <menuitem id="menu_edu_fee_structure" name="Fee Structures" parent="menu_edu_finance_fees" action="action_fee_structure" sequence="10"/>
+    <menuitem id="menu_edu_fee_line" name="Fee Lines" parent="menu_edu_finance_fees" action="action_fee_line" sequence="20"/>
+    <menuitem id="menu_edu_student_invoice" name="Student Invoices" parent="menu_edu_finance_fees" action="action_student_invoice" sequence="30"/>
+
+    <menuitem id="menu_edu_operations_services" name="Services" parent="menu_edu_operations_root" sequence="10"/>
+    <menuitem id="menu_edu_hostel" name="Hostels" parent="menu_edu_operations_services" action="action_hostel" sequence="10"/>
+    <menuitem id="menu_edu_transport" name="Transport" parent="menu_edu_operations_services" action="action_transport" sequence="20"/>
+
+    <menuitem id="menu_edu_operations_attendance" name="Attendance" parent="menu_edu_operations_root" sequence="20"/>
+    <menuitem id="menu_edu_student_attendance" name="Student Attendance" parent="menu_edu_operations_attendance" action="action_student_attendance" sequence="10"/>
+    <menuitem id="menu_edu_teacher_attendance" name="Teacher Attendance" parent="menu_edu_operations_attendance" action="action_teacher_attendance" sequence="20"/>
+</odoo>

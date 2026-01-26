@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_student_result_sheet">
+        <t t-call="web.external_layout">
+            <div class="page">
+                <h2>Student Result Sheet</h2>
+                <p><strong>Result:</strong> <t t-esc="doc.name"/></p>
+                <p><strong>Date:</strong> <t t-esc="doc.date"/></p>
+                <p><strong>Class:</strong> <t t-esc="doc.class_id.name"/></p>
+                <p><strong>Student:</strong> <t t-esc="doc.student_id.name"/></p>
+
+                <table class="table table-sm o_main_table">
+                    <thead>
+                        <tr>
+                            <th>Student</th>
+                            <th>CA</th>
+                            <th>Exam</th>
+                            <th>Total</th>
+                            <th>Grade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="doc.line_ids" t-as="line">
+                            <tr>
+                                <td><t t-esc="line.student_id.name"/></td>
+                                <td><t t-esc="line.ca_score"/></td>
+                                <td><t t-esc="line.exam_score"/></td>
+                                <td><t t-esc="line.total_score"/></td>
+                                <td><t t-esc="line.grade"/></td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_student_attendance">
+        <t t-call="web.external_layout">
+            <div class="page">
+                <h2>Student Attendance Report</h2>
+                <p><strong>Date:</strong> <t t-esc="doc.attendance_date"/></p>
+                <p><strong>Student:</strong> <t t-esc="doc.student_id.name"/></p>
+                <p><strong>Class:</strong> <t t-esc="doc.class_id.name"/></p>
+                <p><strong>Section:</strong> <t t-esc="doc.section_id.name"/></p>
+                <p><strong>Status:</strong> <t t-esc="doc.status"/></p>
+                <p><strong>Note:</strong> <t t-esc="doc.note"/></p>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_teacher_attendance">
+        <t t-call="web.external_layout">
+            <div class="page">
+                <h2>Teacher Attendance Report</h2>
+                <p><strong>Date:</strong> <t t-esc="doc.attendance_date"/></p>
+                <p><strong>Teacher:</strong> <t t-esc="doc.teacher_id.name"/></p>
+                <p><strong>Status:</strong> <t t-esc="doc.status"/></p>
+                <p><strong>Check In:</strong> <t t-esc="doc.check_in"/></p>
+                <p><strong>Check Out:</strong> <t t-esc="doc.check_out"/></p>
+                <p><strong>Note:</strong> <t t-esc="doc.note"/></p>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_financial_summary">
+        <t t-call="web.external_layout">
+            <div class="page">
+                <h2>Financial Summary</h2>
+                <p><strong>Invoice:</strong> <t t-esc="doc.name"/></p>
+                <p><strong>Date:</strong> <t t-esc="doc.date"/></p>
+                <p><strong>Student:</strong> <t t-esc="doc.student_id.name"/></p>
+                <p><strong>Class:</strong> <t t-esc="doc.class_id.name"/></p>
+                <p><strong>Term:</strong> <t t-esc="doc.term_id.name"/></p>
+                <p><strong>Status:</strong> <t t-esc="doc.payment_status"/></p>
+
+                <table class="table table-sm o_main_table">
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Type</th>
+                            <th>Qty</th>
+                            <th>Unit Price</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="doc.line_ids" t-as="line">
+                            <tr>
+                                <td><t t-esc="line.name"/></td>
+                                <td><t t-esc="line.fee_type"/></td>
+                                <td><t t-esc="line.quantity"/></td>
+                                <td><t t-esc="line.price_unit"/></td>
+                                <td><t t-esc="line.subtotal"/></td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+                <p><strong>Total:</strong> <t t-esc="doc.amount_total"/></p>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_student_result_sheet_document">
+        <t t-call="edu_management.report_student_result_sheet">
+            <t t-set="doc" t-value="doc"/>
+        </t>
+    </template>
+
+    <template id="report_student_attendance_document">
+        <t t-call="edu_management.report_student_attendance">
+            <t t-set="doc" t-value="doc"/>
+        </t>
+    </template>
+
+    <template id="report_teacher_attendance_document">
+        <t t-call="edu_management.report_teacher_attendance">
+            <t t-set="doc" t-value="doc"/>
+        </t>
+    </template>
+
+    <template id="report_financial_summary_document">
+        <t t-call="edu_management.report_financial_summary">
+            <t t-set="doc" t-value="doc"/>
+        </t>
+    </template>
+</odoo>

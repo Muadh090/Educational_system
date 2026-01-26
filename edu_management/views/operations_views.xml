@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_hostel_tree" model="ir.ui.view">
+        <field name="name">edu.hostel.tree</field>
+        <field name="model">edu.hostel</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="capacity"/>
+                <field name="fee_structure_id"/>
+                <field name="show_in_menu"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_hostel_kanban" model="ir.ui.view">
+        <field name="name">edu.hostel.kanban</field>
+        <field name="model">edu.hostel</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_small_column">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <strong><field name="name"/></strong>
+                            <div>Capacity: <field name="capacity"/></div>
+                            <div><field name="fee_structure_id"/></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_hostel_form" model="ir.ui.view">
+        <field name="name">edu.hostel.form</field>
+        <field name="model">edu.hostel</field>
+        <field name="arch" type="xml">
+            <form string="Hostel">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="capacity"/>
+                        <field name="fee_structure_id"/>
+                    </group>
+                    <notebook>
+                        <page string="Students">
+                            <field name="student_ids" widget="many2many_tags"/>
+                        </page>
+                        <page string="Settings">
+                            <group>
+                                <field name="show_in_menu"/>
+                                <field name="active"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_transport_tree" model="ir.ui.view">
+        <field name="name">edu.transport.tree</field>
+        <field name="model">edu.transport</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="route"/>
+                <field name="fee_structure_id"/>
+                <field name="show_in_menu"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_transport_kanban" model="ir.ui.view">
+        <field name="name">edu.transport.kanban</field>
+        <field name="model">edu.transport</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_small_column">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <strong><field name="name"/></strong>
+                            <div><field name="route"/></div>
+                            <div><field name="fee_structure_id"/></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_transport_form" model="ir.ui.view">
+        <field name="name">edu.transport.form</field>
+        <field name="model">edu.transport</field>
+        <field name="arch" type="xml">
+            <form string="Transport">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="route"/>
+                        <field name="fee_structure_id"/>
+                    </group>
+                    <notebook>
+                        <page string="Students">
+                            <field name="student_ids" widget="many2many_tags"/>
+                        </page>
+                        <page string="Settings">
+                            <group>
+                                <field name="show_in_menu"/>
+                                <field name="active"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hostel" model="ir.actions.act_window">
+        <field name="name">Hostels</field>
+        <field name="res_model">edu.hostel</field>
+        <field name="view_mode">tree,kanban,form</field>
+    </record>
+
+    <record id="action_transport" model="ir.actions.act_window">
+        <field name="name">Transport Routes</field>
+        <field name="res_model">edu.transport</field>
+        <field name="view_mode">tree,kanban,form</field>
+    </record>
+</odoo>

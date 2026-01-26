@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_student_result" model="ir.actions.report">
+        <field name="name">Student Result Sheet</field>
+        <field name="model">edu.result</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">edu_management.report_student_result_sheet</field>
+        <field name="report_file">edu_management.report_student_result_sheet</field>
+        <field name="print_report_name">'Result - %s' % (object.name)</field>
+    </record>
+
+    <record id="action_report_student_attendance" model="ir.actions.report">
+        <field name="name">Student Attendance Report</field>
+        <field name="model">edu.student.attendance</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">edu_management.report_student_attendance</field>
+        <field name="report_file">edu_management.report_student_attendance</field>
+        <field name="print_report_name">'Attendance - %s' % (object.attendance_date)</field>
+    </record>
+
+    <record id="action_report_teacher_attendance" model="ir.actions.report">
+        <field name="name">Teacher Attendance Report</field>
+        <field name="model">edu.teacher.attendance</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">edu_management.report_teacher_attendance</field>
+        <field name="report_file">edu_management.report_teacher_attendance</field>
+        <field name="print_report_name">'Attendance - %s' % (object.attendance_date)</field>
+    </record>
+
+    <record id="action_report_financial_summary" model="ir.actions.report">
+        <field name="name">Financial Summary</field>
+        <field name="model">edu.student.invoice</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">edu_management.report_financial_summary</field>
+        <field name="report_file">edu_management.report_financial_summary</field>
+        <field name="print_report_name">'Financial Summary - %s' % (object.name)</field>
+    </record>
+</odoo>

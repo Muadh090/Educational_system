@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_student_attendance_tree" model="ir.ui.view">
+        <field name="name">edu.student.attendance.tree</field>
+        <field name="model">edu.student.attendance</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="attendance_date"/>
+                <field name="student_id"/>
+                <field name="class_id"/>
+                <field name="section_id"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_student_attendance_kanban" model="ir.ui.view">
+        <field name="name">edu.student.attendance.kanban</field>
+        <field name="model">edu.student.attendance</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_small_column">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <strong><field name="student_id"/></strong>
+                            <div><field name="attendance_date"/></div>
+                            <div><field name="status"/></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_student_attendance_form" model="ir.ui.view">
+        <field name="name">edu.student.attendance.form</field>
+        <field name="model">edu.student.attendance</field>
+        <field name="arch" type="xml">
+            <form string="Student Attendance">
+                <sheet>
+                    <group>
+                        <field name="attendance_date"/>
+                        <field name="status"/>
+                        <field name="student_id"/>
+                    </group>
+                    <group>
+                        <field name="class_id"/>
+                        <field name="section_id"/>
+                    </group>
+                    <group>
+                        <field name="note"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_teacher_attendance_tree" model="ir.ui.view">
+        <field name="name">edu.teacher.attendance.tree</field>
+        <field name="model">edu.teacher.attendance</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="attendance_date"/>
+                <field name="teacher_id"/>
+                <field name="status"/>
+                <field name="check_in"/>
+                <field name="check_out"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_teacher_attendance_kanban" model="ir.ui.view">
+        <field name="name">edu.teacher.attendance.kanban</field>
+        <field name="model">edu.teacher.attendance</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_small_column">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <strong><field name="teacher_id"/></strong>
+                            <div><field name="attendance_date"/></div>
+                            <div><field name="status"/></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_teacher_attendance_form" model="ir.ui.view">
+        <field name="name">edu.teacher.attendance.form</field>
+        <field name="model">edu.teacher.attendance</field>
+        <field name="arch" type="xml">
+            <form string="Teacher Attendance">
+                <sheet>
+                    <group>
+                        <field name="attendance_date"/>
+                        <field name="status"/>
+                        <field name="teacher_id"/>
+                    </group>
+                    <group>
+                        <field name="check_in"/>
+                        <field name="check_out"/>
+                    </group>
+                    <group>
+                        <field name="note"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_student_attendance" model="ir.actions.act_window">
+        <field name="name">Student Attendance</field>
+        <field name="res_model">edu.student.attendance</field>
+        <field name="view_mode">tree,kanban,form</field>
+    </record>
+
+    <record id="action_teacher_attendance" model="ir.actions.act_window">
+        <field name="name">Teacher Attendance</field>
+        <field name="res_model">edu.teacher.attendance</field>
+        <field name="view_mode">tree,kanban,form</field>
+    </record>
+</odoo>

@@ -4,14 +4,14 @@
         <field name="name">edu.exam.tree</field>
         <field name="model">edu.exam</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name"/>
                 <field name="date"/>
                 <field name="class_id"/>
                 <field name="subject_id"/>
                 <field name="term_id"/>
                 <field name="active"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -66,13 +66,13 @@
         <field name="name">edu.continuous.assessment.tree</field>
         <field name="model">edu.continuous.assessment</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name"/>
                 <field name="exam_id"/>
                 <field name="sequence"/>
                 <field name="max_score"/>
                 <field name="weight"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -118,14 +118,14 @@
         <field name="name">edu.result.tree</field>
         <field name="model">edu.result</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name"/>
                 <field name="date"/>
                 <field name="result_type"/>
                 <field name="exam_id"/>
                 <field name="class_id"/>
                 <field name="student_id"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -168,13 +168,13 @@
                     <notebook>
                         <page string="Result Lines">
                             <field name="line_ids">
-                                <tree editable="bottom">
+                                <list editable="bottom">
                                     <field name="student_id"/>
                                     <field name="ca_score"/>
                                     <field name="exam_score"/>
                                     <field name="total_score"/>
                                     <field name="grade"/>
-                                </tree>
+                                </list>
                             </field>
                         </page>
                     </notebook>
@@ -187,38 +187,38 @@
         <field name="name">edu.result.line.tree</field>
         <field name="model">edu.result.line</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="result_id"/>
                 <field name="student_id"/>
                 <field name="ca_score"/>
                 <field name="exam_score"/>
                 <field name="total_score"/>
                 <field name="grade"/>
-            </tree>
+            </list>
         </field>
     </record>
 
     <record id="action_exam" model="ir.actions.act_window">
         <field name="name">Exams</field>
         <field name="res_model">edu.exam</field>
-        <field name="view_mode">tree,kanban,form</field>
+        <field name="view_mode">list,kanban,form</field>
     </record>
 
     <record id="action_ca" model="ir.actions.act_window">
         <field name="name">Continuous Assessments</field>
         <field name="res_model">edu.continuous.assessment</field>
-        <field name="view_mode">tree,kanban,form</field>
+        <field name="view_mode">list,kanban,form</field>
     </record>
 
     <record id="action_result" model="ir.actions.act_window">
         <field name="name">Results</field>
         <field name="res_model">edu.result</field>
-        <field name="view_mode">tree,kanban,form</field>
+        <field name="view_mode">list,kanban,form</field>
     </record>
 
     <record id="action_result_line" model="ir.actions.act_window">
         <field name="name">Result Lines</field>
         <field name="res_model">edu.result.line</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 </odoo>

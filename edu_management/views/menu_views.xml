@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <menuitem id="menu_edu_academics_root" name="Academics" sequence="10" groups="edu_management.group_edu_admin,edu_management.group_edu_teacher,edu_management.group_edu_accountant"/>
-    <menuitem id="menu_edu_people_root" name="People" sequence="20" groups="edu_management.group_edu_admin,edu_management.group_edu_teacher"/>
-    <menuitem id="menu_edu_learning_root" name="Learning" sequence="30" groups="edu_management.group_edu_admin,edu_management.group_edu_teacher,edu_management.group_edu_parent"/>
-    <menuitem id="menu_edu_exams_root" name="Exams &amp; Results" sequence="40" groups="edu_management.group_edu_admin,edu_management.group_edu_teacher,edu_management.group_edu_parent"/>
-    <menuitem id="menu_edu_finance_root" name="Finance" sequence="50" groups="edu_management.group_edu_admin,edu_management.group_edu_accountant"/>
-    <menuitem id="menu_edu_operations_root" name="Operations" sequence="60" groups="edu_management.group_edu_admin,edu_management.group_edu_teacher"/>
+    <menuitem id="menu_edu_academics_root" name="Academics" sequence="10" groups="base.group_user,base.group_system,edu_management.group_edu_admin,edu_management.group_edu_teacher,edu_management.group_edu_accountant"/>
+    <menuitem id="menu_edu_people_root" name="People" sequence="20" groups="base.group_user,base.group_system,edu_management.group_edu_admin,edu_management.group_edu_teacher"/>
+    <menuitem id="menu_edu_learning_root" name="Learning" sequence="30" groups="base.group_user,base.group_system,edu_management.group_edu_admin,edu_management.group_edu_teacher,edu_management.group_edu_parent"/>
+    <menuitem id="menu_edu_exams_root" name="Exams &amp; Results" sequence="40" groups="base.group_user,base.group_system,edu_management.group_edu_admin,edu_management.group_edu_teacher,edu_management.group_edu_parent"/>
+    <menuitem id="menu_edu_finance_root" name="Finance" sequence="50" groups="base.group_user,base.group_system,edu_management.group_edu_admin,edu_management.group_edu_accountant"/>
+    <menuitem id="menu_edu_operations_root" name="Operations" sequence="60" groups="base.group_user,base.group_system,edu_management.group_edu_admin,edu_management.group_edu_teacher"/>
 
     <menuitem id="menu_edu_academics_structure" name="Structure" parent="menu_edu_academics_root" sequence="10"/>
     <menuitem id="menu_edu_dashboard" name="Dashboard" parent="menu_edu_academics_root" action="action_edu_dashboard" sequence="5"/>

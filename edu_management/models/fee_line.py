@@ -41,6 +41,13 @@ class FeeLine(models.Model):
         store=True,
         readonly=True,
     )
+    company_id = fields.Many2one(
+        "res.company",
+        related="fee_structure_id.company_id",
+        store=True,
+        readonly=True,
+        index=True,
+    )
 
     @api.depends("quantity", "price_unit")
     def _compute_subtotal(self):

@@ -25,6 +25,6 @@
         "views/dashboard_views.xml",
         "views/menu_views.xml",
     ],
-    "application": False,
+    "application": True,
     "installable": True,
 }
